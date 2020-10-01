@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  background: #0f0e17;
-  color: #fff;
-}
-
 #window-title {
   font-size: 16px;
 }
@@ -28,7 +22,7 @@ body {
 }
 
 body {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   overflow-y: hidden;
 }
 
@@ -36,8 +30,9 @@ body {
   display: block;
   position: fixed;
   height: 32px;
-  width: calc(100% - 2px);
+  width: 100%;
   padding: 4px;
+  background-color: #4a0e0e;
 }
 
 #titlebar #drag-region {

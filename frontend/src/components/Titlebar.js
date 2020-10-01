@@ -51,9 +51,9 @@ function Titlebar() {
   return (
     <header id="titlebar" className={isMaximized ? "maximized" : ""}>
       <div id="drag-region">
-        <div id="window-title">
+        {/* <div id="window-title">
           <span className="logo">xioni</span>
-        </div>
+        </div> */}
 
         <div id="window-controls">
           <div className="button" id="min-button" onClick={() => win.minimize()}>
