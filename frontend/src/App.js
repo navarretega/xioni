@@ -1,10 +1,11 @@
 import React from "react";
+import Titlebar from "./components/Titlebar";
 
 function App() {
   return (
-    <div>
-      <h2>App</h2>
-    </div>
+    <>
+      <Titlebar />
+    </>
   );
 }
 
