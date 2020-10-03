@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 function Sidebar({ children }) {
   return (
-    <div className="flex overflow-hidden bg-gray-100" style={{ height: "calc(100vh - 32px)" }}>
+    <div className="flex overflow-hidden bg-gray-50" style={{ height: "calc(100vh - 32px)" }}>
       <div className="hidden md:flex md:flex-shrink-0">
         <div className="flex flex-col w-64">
-          <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto bg-red-800">
+          <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto bg-blue-800">
             <div className="flex items-center flex-shrink-0 px-4">
               <div className="h-8 w-auto text-white tracking-widest text-xl">XIONI</div>
             </div>
@@ -14,10 +14,10 @@ function Sidebar({ children }) {
               <nav className="flex-1 px-2 space-y-1">
                 <Link
                   to="/"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-white rounded-md bg-red-900 focus:outline-none focus:bg-red-700 transition ease-in-out duration-150"
+                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-white rounded-md bg-blue-900 focus:outline-none focus:bg-blue-700 transition ease-in-out duration-150"
                 >
                   <svg
-                    className="mr-3 h-6 w-6 text-red-400 group-focus:text-red-300 transition ease-in-out duration-150"
+                    className="mr-3 h-6 w-6 text-blue-400 group-focus:text-blue-300 transition ease-in-out duration-150"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -34,10 +34,10 @@ function Sidebar({ children }) {
 
                 <a
                   href="#"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-red-300 rounded-md hover:text-white hover:bg-red-700 focus:outline-none focus:text-white focus:bg-red-700 transition ease-in-out duration-150"
+                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150"
                 >
                   <svg
-                    className="mr-3 h-6 w-6 text-red-400 group-hover:text-red-300 group-focus:text-red-300 transition ease-in-out duration-150"
+                    className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -54,10 +54,10 @@ function Sidebar({ children }) {
 
                 <a
                   href="#"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-red-300 rounded-md hover:text-white hover:bg-red-700 focus:outline-none focus:text-white focus:bg-red-700 transition ease-in-out duration-150"
+                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150"
                 >
                   <svg
-                    className="mr-3 h-6 w-6 text-red-400 group-hover:text-red-300 group-focus:text-red-300 transition ease-in-out duration-150"
+                    className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -74,10 +74,10 @@ function Sidebar({ children }) {
 
                 <a
                   href="#"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-red-300 rounded-md hover:text-white hover:bg-red-700 focus:outline-none focus:text-white focus:bg-red-700 transition ease-in-out duration-150"
+                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150"
                 >
                   <svg
-                    className="mr-3 h-6 w-6 text-red-400 group-hover:text-red-300 group-focus:text-red-300 transition ease-in-out duration-150"
+                    className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -94,10 +94,10 @@ function Sidebar({ children }) {
 
                 <a
                   href="#"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-red-300 rounded-md hover:text-white hover:bg-red-700 focus:outline-none focus:text-white focus:bg-red-700 transition ease-in-out duration-150"
+                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150"
                 >
                   <svg
-                    className="mr-3 h-6 w-6 text-red-400 group-hover:text-red-300 group-focus:text-red-300 transition ease-in-out duration-150"
+                    className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -114,10 +114,10 @@ function Sidebar({ children }) {
 
                 <a
                   href="#"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-red-300 rounded-md hover:text-white hover:bg-red-700 focus:outline-none focus:text-white focus:bg-red-700 transition ease-in-out duration-150"
+                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150"
                 >
                   <svg
-                    className="mr-3 h-6 w-6 text-red-400 group-hover:text-red-300 group-focus:text-red-300 transition ease-in-out duration-150"
+                    className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
