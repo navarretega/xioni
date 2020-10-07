@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Sidebar({ children }) {
+  const [activeTab, setActiveTab] = useState("home");
+  const activeTabClassNames =
+    "group flex items-center px-2 py-2 text-sm leading-5 font-medium text-white rounded-md bg-blue-900 focus:outline-none focus:bg-blue-700 transition ease-in-out duration-150";
+  const inactiveTabClassNames =
+    "group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150";
+
   return (
     <div className="flex overflow-hidden bg-gray-50" style={{ height: "calc(100vh - 32px)" }}>
       <div className="hidden md:flex md:flex-shrink-0">
@@ -14,7 +20,8 @@ function Sidebar({ children }) {
               <nav className="flex-1 px-2 space-y-1">
                 <Link
                   to="/"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-white rounded-md bg-blue-900 focus:outline-none focus:bg-blue-700 transition ease-in-out duration-150"
+                  onClick={() => setActiveTab("home")}
+                  className={activeTab === "home" ? activeTabClassNames : inactiveTabClassNames}
                 >
                   <svg
                     className="mr-3 h-6 w-6 text-blue-400 group-focus:text-blue-300 transition ease-in-out duration-150"
@@ -32,25 +39,27 @@ function Sidebar({ children }) {
                   Home
                 </Link>
 
-                <a
-                  href="#"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150"
+                <Link
+                  to="/cart"
+                  onClick={() => setActiveTab("cart")}
+                  className={activeTab === "cart" ? activeTabClassNames : inactiveTabClassNames}
                 >
                   <svg
                     className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
                     fill="none"
-                    viewBox="0 0 24 24"
                     stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth="2"
-                      d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
-                  Team
-                </a>
+                  Cart
+                </Link>
 
                 <a
                   href="#"
