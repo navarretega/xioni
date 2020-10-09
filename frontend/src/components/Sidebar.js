@@ -1,12 +1,23 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Sidebar({ children }) {
-  const [activeTab, setActiveTab] = useState("home");
+  const [activeTab, setActiveTab] = useState("");
+  const userLogin = useSelector((state) => state.userLogin);
+  const { pathname } = useLocation();
+  const { userInfo } = userLogin;
   const activeTabClassNames =
     "group flex items-center px-2 py-2 text-sm leading-5 font-medium text-white rounded-md bg-blue-900 focus:outline-none focus:bg-blue-700 transition ease-in-out duration-150";
   const inactiveTabClassNames =
     "group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150";
+
+  useEffect(() => {
+    if (pathname === "/") setActiveTab("home");
+    else if (pathname === "/cart") setActiveTab("cart");
+    else if (pathname === "/login") setActiveTab("login");
+    else setActiveTab("");
+  }, [pathname]);
 
   return (
     <div className="flex overflow-hidden bg-gray-50" style={{ height: "calc(100vh - 32px)" }}>
@@ -61,85 +72,51 @@ function Sidebar({ children }) {
                   Cart
                 </Link>
 
-                <a
-                  href="#"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150"
-                >
-                  <svg
-                    className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                {userInfo ? (
+                  <Link
+                    to="/profile"
+                    onClick={() => setActiveTab("login")}
+                    className={activeTab === "login" ? activeTabClassNames : inactiveTabClassNames}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-                    />
-                  </svg>
-                  Projects
-                </a>
-
-                <a
-                  href="#"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150"
-                >
-                  <svg
-                    className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    <svg
+                      className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
+                    <span className="truncate">{userInfo.email}</span>
+                  </Link>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={() => setActiveTab("login")}
+                    className={activeTab === "login" ? activeTabClassNames : inactiveTabClassNames}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                  Calendar
-                </a>
-
-                <a
-                  href="#"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150"
-                >
-                  <svg
-                    className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                    />
-                  </svg>
-                  Documents
-                </a>
-
-                <a
-                  href="#"
-                  className="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-blue-300 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition ease-in-out duration-150"
-                >
-                  <svg
-                    className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                    />
-                  </svg>
-                  Reports
-                </a>
+                    <svg
+                      className="mr-3 h-6 w-6 text-blue-400 group-hover:text-blue-300 group-focus:text-blue-300 transition ease-in-out duration-150"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
+                    Sign In
+                  </Link>
+                )}
               </nav>
             </div>
           </div>

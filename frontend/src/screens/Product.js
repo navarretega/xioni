@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { listProductDetails } from "../actions/productActions";
@@ -25,7 +24,10 @@ function Product({ history, match }) {
     <main className="flex-1 relative overflow-y-auto focus:outline-none" tabIndex="0">
       <div className="pt-2 pb-6 md:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-          <div onClick={history.goBack} className="text-xs font-semibold text-blue-900 tracking-wider uppercase underline cursor-pointer">
+          <div
+            onClick={() => history.push("/")}
+            className="text-xs font-semibold text-blue-900 tracking-wider uppercase underline cursor-pointer"
+          >
             GO BACK
           </div>
         </div>
@@ -93,4 +95,4 @@ function Product({ history, match }) {
   );
 }
 
-export default withRouter(Product);
+export default Product;
