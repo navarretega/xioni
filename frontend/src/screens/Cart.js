@@ -22,7 +22,6 @@ function Cart({ match, location, history }) {
   }
 
   function checkoutHandler() {
-    console.log("Checkout");
     history.push("/login?redirect=shipping");
   }
 

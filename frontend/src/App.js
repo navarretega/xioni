@@ -9,6 +9,9 @@ import Cart from "./screens/Cart";
 import Login from "./screens/Login";
 import Register from "./screens/Register";
 import Profile from "./screens/Profile";
+import Shipping from "./screens/Shipping";
+import Payment from "./screens/Payment";
+import PlaceOrder from "./screens/PlaceOrder";
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
           <Route path="/login" component={Login} exact />
           <Route path="/register" component={Register} exact />
           <Route path="/profile" component={Profile} exact />
+          <Route path="/shipping" component={Shipping} exact />
+          <Route path="/payment" component={Payment} exact />
+          <Route path="/placeorder" component={PlaceOrder} exact />
           <Route path="/" component={Home} exact />
         </Sidebar>
       </div>

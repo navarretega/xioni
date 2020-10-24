@@ -17,7 +17,7 @@ function Profile({ history }) {
   const { userInfo } = userLogin;
 
   const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
+  const { error, user } = userDetails;
 
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   let { success } = userUpdateProfile;
@@ -41,7 +41,7 @@ function Profile({ history }) {
     if (history.location.pathname === "/profile" && success) {
       setSuccessMsg("");
     }
-  }, [history]);
+  }, [history, success]);
 
   function logoutHandler() {
     dispatch(logout());
