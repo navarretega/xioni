@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 
-import Titlebar from "./components/Titlebar";
+// import Titlebar from "./components/Titlebar";
 import Sidebar from "./components/Sidebar";
 import Home from "./screens/Home";
 import Product from "./screens/Product";
@@ -12,14 +12,17 @@ import Profile from "./screens/Profile";
 import Shipping from "./screens/Shipping";
 import Payment from "./screens/Payment";
 import PlaceOrder from "./screens/PlaceOrder";
+import Order from "./screens/Order";
 
 function App() {
   return (
     <Router>
-      <Titlebar />
-      <div style={{ paddingTop: "32px" }}>
+      {/* <Titlebar /> */}
+      {/* <div style={{ paddingTop: "32px" }}> */}
+      <div>
         <Sidebar>
           <Route path="/product/:id" component={Product} />
+          <Route path="/order/:id" component={Order} exact />
           <Route path="/cart/:id?" component={Cart} />
           <Route path="/login" component={Login} exact />
           <Route path="/register" component={Register} exact />

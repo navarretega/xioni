@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { logout, getUserDetails, updateUserProfile } from "../actions/userActions";
+import { listMyOrders } from "../actions/orderActions";
+import Loading from "../components/Loading";
 
 function Profile({ history }) {
   const [name, setName] = useState("");
@@ -22,11 +25,15 @@ function Profile({ history }) {
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   let { success } = userUpdateProfile;
 
+  const orderListMy = useSelector((state) => state.orderListMy);
+  let { loading, error: errorMyOrders, orders } = orderListMy;
+
   useEffect(() => {
     if (!userInfo) {
       history.push("/login");
     } else {
       dispatch(getUserDetails("profile"));
+      dispatch(listMyOrders());
     }
   }, [dispatch, history, userInfo]);
 
@@ -150,8 +157,49 @@ function Profile({ history }) {
                 </button>
               </div>
             </div>
-            <div className="bg-red-200" style={{ width: "65%" }}>
-              S2
+            <div style={{ width: "65%" }}>
+              {loading ? (
+                <Loading />
+              ) : (
+                <div className="flex flex-col">
+                  <div className="inline-block min-w-full">
+                    <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                      <table className="min-w-full divide-y divide-gray-200">
+                        <thead>
+                          <tr>
+                            <th className="px-2 py-2 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-700 uppercase tracking-wider">
+                              DATE
+                            </th>
+                            <th className="px-2 py-2 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-700 uppercase tracking-wider">
+                              TOTAL
+                            </th>
+                            <th className="px-2 py-2 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-700 uppercase tracking-wider">
+                              STATUS
+                            </th>
+                            <th className="px-2 py-2 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-700 uppercase tracking-wider"></th>
+                          </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                          {orders.map((order) => (
+                            <tr key={order._id}>
+                              <td className="px-2 py-2 whitespace-no-wrap text-xs leading-5 text-gray-500">
+                                {order.createdAt.substring(0, 10)}
+                              </td>
+                              <td className="px-2 py-2 whitespace-no-wrap text-xs leading-5 text-gray-500">${order.totalPrice}</td>
+                              <td className="px-2 py-2 whitespace-no-wrap text-xs leading-5 text-gray-500">
+                                {order.isPaid ? "Completed" : "Pending"}
+                              </td>
+                              <td className="px-2 py-2 whitespace-no-wrap text-xs leading-5 text-gray-800">
+                                <Link to={`/order/${order._id}`}>Details</Link>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

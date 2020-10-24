@@ -30,6 +30,9 @@ app.use("/api/users", userRoutes);
 // Orders
 app.use("/api/orders", orderRoutes);
 
+// Config
+app.get("/api/config/paypal", (req, res) => res.send(process.env.PAYPAL_CLIENT_ID));
+
 // 404 Responses and Error Handlers * Have to be at the end *
 app.use(notFound);
 app.use(errorHandler);

@@ -8,12 +8,15 @@ function createWindow() {
     minWidth: 1200,
     minHeight: 800,
     // resizable: false,
-    frame: false,
+    frame: true,
     webPreferences: {
-      nodeIntegration: true,
-      enableRemoteModule: true,
+      // nodeIntegration: true,
+      // enableRemoteModule: true,
+      sandbox: true,
     },
   });
+
+  win.setMenuBarVisibility(false);
 
   // and load the index.html of the app.
   win.loadURL(isDev ? "http://localhost:3000" : `file://${path.join(__dirname, "../build/index.html")}`);

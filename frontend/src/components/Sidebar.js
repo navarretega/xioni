@@ -20,7 +20,8 @@ function Sidebar({ children }) {
   }, [pathname]);
 
   return (
-    <div className="flex overflow-hidden bg-gray-50" style={{ height: "calc(100vh - 32px)" }}>
+    // <div className="flex overflow-hidden bg-gray-50" style={{ height: "calc(100vh - 32px)" }}>
+    <div className="flex overflow-hidden bg-gray-50" style={{ height: "100vh" }}>
       <div className="hidden md:flex md:flex-shrink-0">
         <div className="flex flex-col w-64">
           <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto bg-blue-800">
